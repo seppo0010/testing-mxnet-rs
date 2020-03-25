@@ -8,6 +8,10 @@ a number of dimensions lower than `-1`.
 In GDB we can see that the first pointer of the array in outputs sent in Rust does not match the
 one received in the c function in release, but they do match in debug.
 
+The print is right before the call.
+
+https://github.com/seppo0010/testing-mxnet-rs/blob/master/src/main.rs#L253
+
 The breakpoint is at the beginning of the called function.
 
 https://github.com/apache/incubator-mxnet/blob/83b51703ed354f41024423f140de38df2ba22d50/src/c_api/c_api_ndarray.cc#L164
