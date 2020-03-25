@@ -1,0 +1,10 @@
+[package]
+name = "testing-mxnet"
+version = "0.1.0"
+authors = ["seppo"]
+edition = "2018"
+
+[dependencies]
+mxnet-sys = { git = "https://github.com/jakelee8/mxnet-sys" }
+lazy_static = "1.4.0"
+base64 = "0.12.0"
