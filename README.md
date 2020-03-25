@@ -3,7 +3,16 @@
 Running `cargo run` works fine. However using `--release` fails with either a segfault or getting
 a number of dimensions lower than `-1`.
 
-## gdb debug
+## gdb
+
+In GDB we can see that the first pointer of the array in outputs sent in Rust does not match the
+one received in the c function in release, but they do match in debug.
+
+The breakpoint is at the beginning of the called function.
+
+https://github.com/apache/incubator-mxnet/blob/83b51703ed354f41024423f140de38df2ba22d50/src/c_api/c_api_ndarray.cc#L164
+
+### gdb debug
 
 ```
 root@7d3e5c30801c:/workspaces/testing-mxnet# cargo build
@@ -35,7 +44,7 @@ $1 = (NDArrayHandle) 0x5555559c2f60
 (gdb) quit
 ```
 
-## gdb release
+### gdb release
 
 ```
 root@7d3e5c30801c:/workspaces/testing-mxnet# cargo build --release
